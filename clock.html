@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Time Display</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 100px;
+      font-size: 2em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Display the time -->
+<div id="liveTime"></div>
+
+<script>
+function updateLiveTime() {
+  // Get the current date and time
+  const now = new Date();
+
+  // Format the time components (hours, minutes, seconds)
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+
+  // Display the formatted time
+  const liveTimeElement = document.getElementById('liveTime');
+  liveTimeElement.textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+// Update the time immediately
+updateLiveTime();
+
+// Update the time every second
+setInterval(updateLiveTime, 1000);
+</script>
+
+</body>
+</html>
+
